@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Madam Ji</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffd9e6);
+  overflow-x: hidden;
+  color: #333;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 3em;
+  color: #ff3399;
+  text-shadow: 0 0 10px #ff66b3, 0 0 20px #ff66b3;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff66b3, 0 0 20px #ff66b3; }
+  to { text-shadow: 0 0 20px #ff99cc, 0 0 40px #ff99cc; }
+}
+#helloKitty {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  z-index: 10;
+}
+#surpriseBtn {
+  display: block;
+  margin: 40px auto;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #ff66b3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+#surpriseBtn:hover {
+  transform: scale(1.1);
+  background-color: #ff3399;
+}
+#letter {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(255, 230, 240, 0.85);
+  border-radius: 15px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  white-space: pre-line;
+  display: none;
+}
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  width: 40px;
+  height: 60px;
+  background: pink;
+  border-radius: 50%;
+  animation: float 6s linear infinite;
+  z-index: 5;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<img src="https://i.imgur.com/6YV4H9L.png" id="helloKitty" alt="Hello Kitty">
+<h1>Happy Birthday Madam Ji!</h1>
+<button id="surpriseBtn">Your Birthday Surprise 🎁</button>
+<div id="letter"></div>
+
+<audio id="bgMusic" loop autoplay>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const letterText = `Happy Birthday to the most incredible, beautiful, and sweet person I have ever met!... ❤️ Lavin Aggarwal`;
+
+const btn = document.getElementById("surpriseBtn");
+const letterDiv = document.getElementById("letter");
+
+btn.addEventListener("click", () => {
+  btn.disabled = true;
+  letterDiv.style.display = "block";
+  let i = 0;
+  letterDiv.innerHTML = "";
+  function typeWriter() {
+    if (i < letterText.length) {
+      letterDiv.innerHTML += letterText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 15);
+    } else {
+      launchConfetti();
+      launchBalloons();
+    }
+  }
+  typeWriter();
+});
+
+function launchConfetti() {
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.textContent = "🎉";
+    confetti.style.position = "fixed";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = "-20px";
+    confetti.style.fontSize = "20px";
+    confetti.style.animation = `fall ${2 + Math.random() * 3}s linear forwards`;
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 4000);
+  }
+}
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}`;
+document.head.appendChild(style);
+
+function launchBalloons() {
+  for (let i = 0; i < 10; i++) {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.background = ["pink", "lightblue", "lightgreen", "lavender"][i % 4];
+    balloon.style.animationDuration = (5 + Math.random() * 3) + "s";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 8000);
+  }
+}
+</script>
+</body>
+</html>
