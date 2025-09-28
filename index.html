@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Madam Ji</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #ffe6f0, #ffd9e6);
+    overflow-x: hidden;
+    color: #333;
+    position: relative;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3em;
+    color: #ff3399;
+    text-shadow: 0 0 10px #ff66b3, 0 0 20px #ff66b3;
+    animation: glow 2s infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #ff66b3, 0 0 20px #ff66b3; }
+    to { text-shadow: 0 0 20px #ff99cc, 0 0 40px #ff99cc; }
+  }
+  #helloKitty {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    z-index: 10;
+  }
+  #balloons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 50px;
+    height: 70px;
+    background-color: pink;
+    border-radius: 50% 50% 50% 50%;
+    opacity: 0.8;
+    animation: float 10s linear infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-700px) rotate(180deg); }
+    100% { transform: translateY(-1400px) rotate(360deg); }
+  }
+  #confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  #surpriseBtn {
+    display: block;
+    margin: 40px auto;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #ff66b3;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+  #surpriseBtn:hover {
+    transform: scale(1.1);
+    background-color: #ff3399;
+  }
+  #letter {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 230, 240, 0.8);
+    border-radius: 15px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    display: none;
+    white-space: pre-line;
+  }
+  .highlight {
+    color: #ff3399;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #ff99cc; }
+    50% { text-shadow: 0 0 15px #ff66b3; }
+    100% { text-shadow: 0 0 5px #ff99cc; }
+  }
+  #specialEnding {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 20;
+  }
+  #specialText {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    color: #ff3399;
+    text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66b3;
+    animation: sparkle 1s infinite alternate;
+  }
+  @keyframes sparkle {
+    from { text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66b3; }
+    to { text-shadow: 0 0 20px #ff66b3, 0 0 40px #ff99cc; }
+  }
+</style>
+</head>
+<body>
+<img src="https://i.ibb.co/k9n1jKM/hello-kitty.png" id="helloKitty" alt="Hello Kitty">
+<h1>Happy Birthday Madam Ji!</h1>
+<button id="surpriseBtn">Your Birthday Surprise 🎁</button>
+<div id="letter">[Letter content will appear here]</div>
+<div id="balloons"></div>
+<div id="confetti"></div>
+<div id="specialEnding">
+  <div id="specialText">Happy Birthday Rasgulla! 🎉🎈</div>
+</div>
+<audio id="bgMusic" loop autoplay>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<script>
+// Add JavaScript for animations and typewriter effect here
+</script>
+</body>
+</html>
